@@ -23,6 +23,10 @@ urlpatterns = [
     path('test/', views.test),
     path('aboutus/', views.AboutUs),
     path('contactUs/',views.ContactUs),
-    path("",views.Home)
-]
-    
+    path("",views.Home),
+    path('movies/',views.Movies),
+    path('news/',views.News),
+    path('shows/',views.Shows),
+    path('receipe/',views.Receipe),
+    path('team/',views.Team)
+]   
