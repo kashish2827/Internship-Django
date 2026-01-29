@@ -30,3 +30,13 @@ def Team(request):
         "teamlist":teamlist
     }
     return render(request,'team.html',data)
+def Cars(request):
+    features=["4.4L Twin-Turbo V8 M Engine","Power: ~617 HP (M5 Competition)","Torque: 750 Nm",
+              "0–100 km/h in ~3.3 seconds","Top speed: 250 km/h","8-speed M Steptronic automatic transmission"]
+    data={
+        "name":"BMW M5",
+        "price":6000000,
+        "model":2025,
+        "Features":features
+    }
+    return render(request,"cars.html",data)

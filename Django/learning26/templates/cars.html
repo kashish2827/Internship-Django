@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align:center"> This page shows the details of car </h1>
+    </div>
+    <div>
+        <h1>Car Name: {{name}}</h1>
+        <h2>Price: {{price}}</h2>
+        <h2>Model: {{model}}</h2>
+        <h2>Feature:</h2>
+        {% for i in Features %}
+            <h3 style="margin-left:80px;">{{i}}</h3>
+        {% endfor %}
+        {% if price > 5000000 %}
+                <h1>Car is Luxury</h1>
+                {% else %}
+                    <h1>Car is Affordable</h1>
+        {% endif %}
+    </div>
+</body>
+</html>

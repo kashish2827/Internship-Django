@@ -28,5 +28,6 @@ urlpatterns = [
     path('news/',views.News),
     path('shows/',views.Shows),
     path('receipe/',views.Receipe),
-    path('team/',views.Team)
+    path('team/',views.Team),
+    path('cars/',views.Cars)
 ]   
