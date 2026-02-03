@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align:center;">This page shows Attendance of the Student </h1>
+    </div>
+    <div>
+        <h2>Student Attendance</h2>
+        {% for s in student %}
+        {% if s.attendence >= 20 %}
+        <p>Roll No: {{ s.rollno }}, Name: {{ s.name }}, Attendance: {{ s.attendence }}</p>
+        <p>Status: Sufficient Attendance</p>
+        {% else %}
+        <p>Roll No: {{ s.rollno }}, Name: {{ s.name }}, Attendance: {{ s.attendence }}</p>
+        <p>Status: Insufficient Attendance</p>
+        {% endif %}
+        {% endfor %}
+</body>
+</html>

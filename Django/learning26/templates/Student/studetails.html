@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align:center;">This page shows Details of the Student </h1>
+    </div>
+    <div>
+        <h2> Student Details </h2>
+        <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Standard</th>
+            <th>City</th>
+            <th>Marks</th>
+            <th>Attendence</th>
+        </tr>
+
+         {% for s in student %}
+        <tr>
+            <td>{{ s.rollno }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.std }}</td>
+            <td>{{ s.city }}</td>
+            <td>{{s.marks}}</td>
+            <td>{{s.attendence}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+</body>
+</html>
