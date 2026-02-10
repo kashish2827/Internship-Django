@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+
+<h1>Employee List</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee Designation</th>
+            <th>Employee City</th>
+            <th>Employee Email</th>
+            <th>Employee Contact</th>
+            <th>Employee Age</th>,
+            <th>Employee Joining Date</th>
+            <th>Employee Department</th>
+            <th>Employee Gender</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for emp in emp %}
+        <tr>
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.empName }}</td>
+            <td>{{ emp.empSalary }}</td>
+            <td>{{ emp.empDesignation }}</td>
+            <td>{{ emp.empCity }}</td>
+            <td>{{ emp.empEmail }}</td>
+            <td>{{ emp.empConatct }}</td>
+            <td>{{ emp.empAge }}</td>
+            <td>{{ emp.empJoiningDate }}</td>
+            <td>{{ emp.empDepartment }}</td>
+            <td>{{ emp.empGender }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

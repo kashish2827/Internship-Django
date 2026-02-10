@@ -31,5 +31,6 @@ urlpatterns = [
     path('receipe/',views.Receipe),
     path('team/',views.Team),
     path('cars/',views.Cars),
-    path("Student/",include("student.urls"))
+    path("Student/",include("student.urls")),
+    path("Emp/",include("Employee.urls"))
 ]   
