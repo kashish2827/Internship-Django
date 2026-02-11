@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from .models import employee
+from .forms import EmployeeForm,CourseForm,GymForm,ToyForm
 # Create your views here.
 
 def emplist(request):
@@ -46,3 +47,46 @@ def empFilter(request):
     print(employee12)
     print(employee13)
     return render(request,'employee/empfilter.html',{"emp":empname})
+
+def createEmployee(request):
+    return HttpResponse("Employee Created....")
+
+def createEmployeewithform(request):
+    print(request.method)
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        form.save()
+        return HttpResponse("Employee created successfully....")
+    else:
+        form = EmployeeForm()
+        return render(request,'employee/createempForm.html',{'form':form})
+    
+def addCourse(request):
+    print(request.method)
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        form.save()
+        return HttpResponse("Course added successfully.....")
+    else:
+        form = CourseForm()
+        return render(request,'employee/course.html',{'form':form})
+
+def gymMemberadd(request):
+    print(request.method)
+    if request.method == "POST":
+        form = GymForm(request.POST)
+        form.save()
+        return HttpResponse("GYM Member added successfully....")
+    else:
+        form=GymForm()
+        return render(request,'employee/gymuser.html',{'form':form})
+    
+def toyAdd(request):
+    print(request.method)
+    if request.method == "POST":
+        form = ToyForm(request.POST)
+        form.save()
+        return HttpResponse("Toys details added successfully... ")
+    else:
+        form=ToyForm()
+        return render(request,'employee/toy.html',{'form':form})

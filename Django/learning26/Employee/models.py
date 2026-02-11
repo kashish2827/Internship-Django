@@ -23,3 +23,33 @@ class employee(models.Model):
     def __str__(self):
         return self.empName
 
+class course(models.Model):
+    cName = models.CharField(max_length=50)
+    cFees = models.IntegerField()
+    CDuration = models.IntegerField(default=6)
+    class Meta:
+        db_table="Course"
+    def __str__(self):
+        return self.cName
+
+class gymuser(models.Model):
+    userName = models.CharField(max_length=50)
+    userEmail = models.EmailField(null=True)
+    userPassword = models.CharField(max_length=100)
+    userPhone = models.CharField(max_length=15, null=True)
+    userAddress = models.TextField(null=True)
+
+    class Meta:
+        db_table="GYMMember"
+    def __str__(self):
+        return self.userName
+    
+class Toys(models.Model):
+    toyname = models.CharField(max_length=100)
+    toycategory = models.CharField(max_length=50)
+    toyprice = models.IntegerField()
+    discount = models.IntegerField()
+    class Meta:
+        db_table = "Toys"
+    def __str__(self):
+        return self.toyname
