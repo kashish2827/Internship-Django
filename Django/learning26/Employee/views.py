@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse
 from .models import employee
 from .forms import EmployeeForm,CourseForm,GymForm,ToyForm
+from django.shortcuts import redirect
 # Create your views here.
 
 def emplist(request):
@@ -56,7 +57,8 @@ def createEmployeewithform(request):
     if request.method == "POST":
         form = EmployeeForm(request.POST)
         form.save()
-        return HttpResponse("Employee created successfully....")
+        #return HttpResponse("Employee created successfully....")
+        return redirect("empList")
     else:
         form = EmployeeForm()
         return render(request,'employee/createempForm.html',{'form':form})
@@ -90,3 +92,24 @@ def toyAdd(request):
     else:
         form=ToyForm()
         return render(request,'employee/toy.html',{'form':form})
+
+def DeleteEmp(request,id):
+    print("id from url = ",id)
+    employee.objects.filter(id=id).delete()
+    return redirect("empList")
+    
+def filterEmployee(request):
+    print("filter employee called...")
+    emp = employee.objects.filter(empAge__gte=25).values()
+    print("filter employees = ",emp)
+    #return redirect("employeeList")
+    return render(request,'employee/empList.html',{"emp":emp})
+
+def sortEmployee(request,id):
+    print("Sort Employee By Age")
+    if id==1:
+        emp = employee.objects.order_by("empAge").values()
+        return render(request,'employee/empList.html',{"emp":emp})
+    else:
+        emp = employee.objects.order_by("-empAge").values()
+        return render(request,'employee/empList.html',{"emp":emp})

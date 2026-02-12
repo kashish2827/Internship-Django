@@ -7,7 +7,10 @@
 <body>
 
 <h1>Employee List</h1>
-
+<a href="{% url 'createempForm' %}">Create Employee</a>
+<a href ="{% url 'filterEmployee' %}">FILTER</a> 
+<a href ="{% url 'sortEmployee' 1 %}">Asc</a>
+<a href ="{% url 'sortEmployee' 2 %}">Desc</a>
 <table border="1">
     <thead>
         <tr>
@@ -22,6 +25,7 @@
             <th>Employee Joining Date</th>
             <th>Employee Department</th>
             <th>Employee Gender</th>
+            <th>Action</th>
         </tr>
     </thead>
 
@@ -39,6 +43,7 @@
             <td>{{ emp.empJoiningDate }}</td>
             <td>{{ emp.empDepartment }}</td>
             <td>{{ emp.empGender }}</td>
+            <td><a href="{% url 'deleteEmployee' emp.id %}"> Delete </a></td>
         </tr>
         {% endfor %}
     </tbody>
