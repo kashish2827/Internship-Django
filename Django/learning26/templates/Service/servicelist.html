@@ -20,7 +20,7 @@
             <th>Service Price</th>
             <th>Service Discount</th>
             <th>Service Description</th>
-            {% comment %} <th colspan="2">Action</th> {% endcomment %}
+            <th colspan="2">Action</th> 
         </tr>
     </thead>
 
@@ -33,8 +33,8 @@
             <td>{{ s.sprice }}</td>
             <td>{{ s.sdiscount }}</td>
             <td>{{ s.sdescription }}</td>
-            {% comment %} <td><a href="{% url 'deleteEmployee' s.id %}"> Delete </a></td>
-            <td><a href="{% url 'updateemp' s.id %}"> Update </a></td> {% endcomment %}
+            <td><a href="{% url 'deleteservice' s.id %}"> Delete </a></td>
+            <td><a href="{% url 'updateservice' s.id %}"> Update </a></td> 
         </tr>
         {% endfor %}
     </tbody>
