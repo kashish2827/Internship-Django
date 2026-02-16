@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 # Create your views here.
 
 def emplist(request):
-    emp = employee.objects.all().values()
+    emp = employee.objects.all().order_by('id').values()
     print(emp)
     return render(request,'employee/empList.html',{"emp":emp})
 
@@ -113,3 +113,13 @@ def sortEmployee(request,id):
     else:
         emp = employee.objects.order_by("-empAge").values()
         return render(request,'employee/empList.html',{"emp":emp})
+    
+def updateEmployee(request,id):
+    emp = employee.objects.get(id=id) #it fire the select * from employee where id=1
+    if request.method == "POST":
+        form = EmployeeForm(request.POST,instance=emp) # instance get the data from the database and fill in the form
+        form.save()
+        return redirect("empList")
+    else:
+        form = EmployeeForm(instance=emp)
+        return render(request,'employee/createempForm.html',{'form':form})

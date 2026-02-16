@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service List</title>
+</head>
+<body>
+
+<h1>Service List</h1>
+<a href="{% url 'addservice' %}">Create Service</a>
+{% comment %} <a href ="{% url 'filterEmployee' %}">FILTER</a> 
+<a href ="{% url 'sortEmployee' 1 %}">Asc</a>
+<a href ="{% url 'sortEmployee' 2 %}">Desc</a> {% endcomment %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Service ID</th>
+            <th>Service Name</th>
+            <th>Service Category</th>
+            <th>Service Price</th>
+            <th>Service Discount</th>
+            <th>Service Description</th>
+            {% comment %} <th colspan="2">Action</th> {% endcomment %}
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for s in service %}
+        <tr>
+            <td>{{ s.id }}</td>
+            <td>{{ s.sname }}</td>
+            <td>{{ s.scategory }}</td>
+            <td>{{ s.sprice }}</td>
+            <td>{{ s.sdiscount }}</td>
+            <td>{{ s.sdescription }}</td>
+            {% comment %} <td><a href="{% url 'deleteEmployee' s.id %}"> Delete </a></td>
+            <td><a href="{% url 'updateemp' s.id %}"> Update </a></td> {% endcomment %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<h1>Add New Service</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Add Service</button>
+    <button type="back"><a href="{% url 'servicelist' %}">Back</a></button>
+</form>

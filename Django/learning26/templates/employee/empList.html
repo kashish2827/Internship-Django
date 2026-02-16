@@ -25,7 +25,7 @@
             <th>Employee Joining Date</th>
             <th>Employee Department</th>
             <th>Employee Gender</th>
-            <th>Action</th>
+            <th colspan="2">Action</th>
         </tr>
     </thead>
 
@@ -44,6 +44,7 @@
             <td>{{ emp.empDepartment }}</td>
             <td>{{ emp.empGender }}</td>
             <td><a href="{% url 'deleteEmployee' emp.id %}"> Delete </a></td>
+            <td><a href="{% url 'updateemp' emp.id %}"> Update </a></td>
         </tr>
         {% endfor %}
     </tbody>
