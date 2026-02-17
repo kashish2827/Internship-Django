@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,50 +6,60 @@
     <title>Employee List</title>
 </head>
 <body>
+    {% extends "base.html" %}
+    {% block content %}
+    {% comment %} <h1>Employee List</h1> {% endcomment %}
+    {% comment %} <a href="{% url 'createempForm' %}">Create Employee</a>
+    <a href ="{% url 'filterEmployee' %}">FILTER</a> 
+    <a href ="{% url 'sortEmployee' 1 %}">Asc</a>
+    <a href ="{% url 'sortEmployee' 2 %}">Desc</a> {% endcomment %}
+    <nav class="navbar">       
+    <div class="navbar-links">
+        <a href="{% url 'filterEmployee' %}">Filter</a>
+        <a href="{% url 'sortEmployee' 1 %}">Ascending By Age</a>
+        <a href="{% url 'sortEmployee' 2 %}">Descending By Age</a>
+    </div>
+    </nav>
+    <div class="table-container">
+    <table border="1" >
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Employee Designation</th>
+                <th>Employee City</th>
+                <th>Employee Email</th>
+                <th>Employee Contact</th>
+                <th>Employee Age</th>
+                <th>Employee Joining Date</th>
+                <th>Employee Department</th>
+                <th>Employee Gender</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
 
-<h1>Employee List</h1>
-<a href="{% url 'createempForm' %}">Create Employee</a>
-<a href ="{% url 'filterEmployee' %}">FILTER</a> 
-<a href ="{% url 'sortEmployee' 1 %}">Asc</a>
-<a href ="{% url 'sortEmployee' 2 %}">Desc</a>
-<table border="1">
-    <thead>
-        <tr>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>Employee Salary</th>
-            <th>Employee Designation</th>
-            <th>Employee City</th>
-            <th>Employee Email</th>
-            <th>Employee Contact</th>
-            <th>Employee Age</th>,
-            <th>Employee Joining Date</th>
-            <th>Employee Department</th>
-            <th>Employee Gender</th>
-            <th colspan="2">Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        {% for emp in emp %}
-        <tr>
-            <td>{{ emp.id }}</td>
-            <td>{{ emp.empName }}</td>
-            <td>{{ emp.empSalary }}</td>
-            <td>{{ emp.empDesignation }}</td>
-            <td>{{ emp.empCity }}</td>
-            <td>{{ emp.empEmail }}</td>
-            <td>{{ emp.empConatct }}</td>
-            <td>{{ emp.empAge }}</td>
-            <td>{{ emp.empJoiningDate }}</td>
-            <td>{{ emp.empDepartment }}</td>
-            <td>{{ emp.empGender }}</td>
-            <td><a href="{% url 'deleteEmployee' emp.id %}"> Delete </a></td>
-            <td><a href="{% url 'updateemp' emp.id %}"> Update </a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+        <tbody>
+            {% for emp in emp %}
+                <tr>
+                    <td>{{ emp.id }}</td>
+                    <td>{{ emp.empName }}</td>
+                    <td>{{ emp.empSalary }}</td>
+                    <td>{{ emp.empDesignation }}</td>
+                    <td>{{ emp.empCity }}</td>
+                    <td>{{ emp.empEmail }}</td>
+                    <td>{{ emp.empConatct }}</td>
+                    <td>{{ emp.empAge }}</td>
+                    <td>{{ emp.empJoiningDate }}</td>
+                    <td>{{ emp.empDepartment }}</td>
+                    <td>{{ emp.empGender }}</td>
+                    <td><a href="{% url 'deleteEmployee' emp.id %}"> Delete </a></td>
+                    <td><a href="{% url 'updateemp' emp.id %}"> Update </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 </body>
+{% endblock %}
 </html>

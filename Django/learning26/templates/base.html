@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+        {% include "usernavbar.html" %}
+    </header>
+    
+    
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+   {% include "footer.html" %}
+</body>
+</html>
