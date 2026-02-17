@@ -123,3 +123,6 @@ def updateEmployee(request,id):
     else:
         form = EmployeeForm(instance=emp)
         return render(request,'employee/createempForm.html',{'form':form})
+    
+def home(request):
+    return render(request,'employee/home.html')
