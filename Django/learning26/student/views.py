@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .forms import ServiceForm
+from .models import Service
 
 # Create your views here.
 def Home(request):
@@ -15,3 +17,24 @@ def StuPass(request):
     return render(request,'student/stupass.html',{"student":stu1})
 def StuAtt(request):
     return render(request,'student/stuatt.html',{"student":stu1})
+
+def serviceList(request):
+    services = Service.objects.all()
+    return render(request,"student/serviceList.html",{"services":services})
+
+def createservice(request):
+    if request.method == "POST":
+        form = ServiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("serviceList")
+        else:
+            return render(request,"student/createservice.html",{"form":form}) 
+    else:
+        form = ServiceForm()    
+    return render(request,"student/createservice.html",{"form":form})
+
+def deleteservice(request,serviceid):
+    service = Service.objects.get(id=serviceid)
+    service.delete()
+    return redirect("serviceList")

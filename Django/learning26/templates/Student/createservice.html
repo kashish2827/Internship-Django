@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method = "POST">
+    {% csrf_token %}
+    {{form|crispy}}
+     {% comment %} {{form.serviceName | as_crispy_field}}
+     {{form.serviceDescription | as_crispy_field}}
+     {{form.servicePrice | as_crispy_field}}
+     {{form.categoryId | as_crispy_field}} {% endcomment %}
+     
+    <input type="submit" value="Submit">
+    <button type="back"><a href="{% url 'home' %}">Back</a></button>
+</form>
+{% endblock %}
