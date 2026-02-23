@@ -33,5 +33,6 @@ urlpatterns = [
     path('cars/',views.Cars),
     path("Student/",include("student.urls")),
     path("Emp/",include("Employee.urls")),
-    path("Ser/",include("Service.urls"))
+    path("Ser/",include("Service.urls")),
+    path("Core/",include("Core.urls"))
 ]   
